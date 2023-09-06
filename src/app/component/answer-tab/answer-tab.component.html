@@ -1,9 +1,12 @@
 <div class="contariner-fluid">
   <div class="row">
+    <div class="col-lg-1">
+      <app-side-bar></app-side-bar>
+    </div>
     <div class="col-xl-11" style="margin-top: 5px">
       <app-header></app-header>
       <div>
-        <button class="backBtn">Back</button>
+        <button class="backBtn" routerLink="/admin-dashboard">Back</button>
         <button class="exportBtn" (click)="exportAsExcelFile()">
           Export To Excel
         </button>
@@ -19,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let answer of ansArray">
+          <tr *ngFor="let answer of answerArray">
             <th scope="row">{{ answer?.user?.fullName }}</th>
             <td>{{ answer?.category }}</td>
             <td>{{ answer?.question }}</td>

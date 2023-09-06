@@ -5,7 +5,26 @@
     </div>
     <div class="col-xl-11" style="margin-top: 5px">
       <app-header></app-header>
-
+      <div class="stageStyle">
+        <div *ngIf="stage == 2">Stage 1 >> Purpose</div>
+        <div *ngIf="stage == 3">Stage 1 >> Connect with Drivers</div>
+        <div *ngIf="stage == 4">Stage 1 >> Agree To Consider</div>
+        <div *ngIf="stage === 5">Stage 1 >> Reason To Move</div>
+        <div *ngIf="stage === 6">Trap 1</div>
+        <div *ngIf="stage === 7">Stage 2 >> Requirement</div>
+        <div *ngIf="stage === 8">Stage 2 >> Gap Anlysis</div>
+        <div *ngIf="stage === 9">Stage 2 >> Significance</div>
+        <div *ngIf="stage === 10">Stage 2 >> Decision To Move</div>
+        <div *ngIf="stage === 11">Stage 3 >> Solution</div>
+        <div *ngIf="stage === 12">Stage 3 >> Differntiate</div>
+        <div *ngIf="stage === 13">Stage 3 >>Reconnect To Drivers</div>
+        <div *ngIf="stage === 14">Stage 3 >> Consider Options</div>
+        <div *ngIf="stage === 15">Trap 2</div>
+        <div *ngIf="stage === 16">Stage 4 >> Concerns</div>
+        <div *ngIf="stage === 17">Stage 4 >> Negotiation</div>
+        <div *ngIf="stage === 18">Stage 4 >> Commit</div>
+        <div *ngIf="stage === 19">Stage 4 >> Commits</div>
+      </div>
       <mat-tab-group
         class="data"
         mat-stretch-tabs="false"
@@ -27,6 +46,7 @@
               <ng-container *ngFor="let opt of question.option">
                 <div style="margin-top: 5px; margin-left: 50px">
                   <input
+                    *ngIf="role1 == 'user1'"
                     type="radio"
                     style="margin-right: 10px"
                     name="option"

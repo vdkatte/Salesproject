@@ -5,10 +5,6 @@
     </div>
     <div class="col-xl-11" style="margin-top: 5px">
       <app-header></app-header>
-      <div class="addquestion">
-        <!-- <h3>Add Question Clicking Below Button </h3> -->
-      </div>
-      <hr class="hrtag" size="4" width="730px">
       <div class="addQuestionBtn">
         <button
           style="
@@ -16,29 +12,42 @@
             border-radius: 10px;
             padding: 5px;
             border: none;
+            margin-right: 250px;
+            color: white;
           "
           routerLink="/admin-user-form"
         >
           Add Question
         </button>
-      </div>
-      <div class="addQuestionBtn">
         <button
+          class="exportBtn"
           style="
             background-color: red;
             border-radius: 10px;
             padding: 5px;
             border: none;
+            margin-left: 0px;
+            color: white;
           "
-          routerLink="/dashboard"
+          routerLink="/user-dashboard"
         >
-          Sales Dashboard
+          User View
+        </button>
+        <button
+          class="exportBtn"
+          (click)="exportAsExcelFile()"
+          style="
+            background-color: red;
+            border-radius: 10px;
+            padding: 5px;
+            border: none;
+            margin-left: 250px;
+            color: white;
+          "
+        >
+          Export To Excel
         </button>
       </div>
-      <div class="examheading">
-        <h3> Exam Result For Users</h3>
-      </div>
-      <hr class="hrtag" size="4" width="730px">
       <table class="table-bordered tableStyle">
         <thead>
           <tr>
@@ -57,8 +66,8 @@
                 >{{ answer?.user?.fullName }}</a
               >
             </th>
-            <td>{{ answer?.mark }}</td>
-            <td>{{ timeTaken }}</td>
+            <td>{{ answer?.mark }} %</td>
+            <td>{{ answer.timeTaken }}</td>
             <td>{{ answer.endTime | date : "dd MMM-YYYY" }}</td>
           </tr>
         </tbody>

@@ -1,8 +1,7 @@
 .leftsidebar {
   list-style: none;
-
   height: 100vh;
-  background-color: red;
+  background-color: #ee6e6e;
 }
 .leftsidebar li {
   margin-top: 0px;
@@ -15,10 +14,7 @@
   width: 5%;
   background-color: red;
 }
-/* .col-lg-1{
-        margin: 0;
-        padding: 0;
-        width: 5%;
-        background-color: red;
-       
-    } */
+.col-lg-1 {
+  margin: 0;
+  padding: 0;
+}

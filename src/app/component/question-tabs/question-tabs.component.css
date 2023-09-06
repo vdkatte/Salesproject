@@ -40,3 +40,12 @@
   margin-bottom: 20px;
   justify-content: center;
 }
+.stageStyle {
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
+  font-style: italic;
+  font-size: 24px;
+  border-radius: 10px;
+  margin-top: 5px;
+}

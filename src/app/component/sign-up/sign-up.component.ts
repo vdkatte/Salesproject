@@ -25,7 +25,7 @@ export class SignUpComponent {
   }
 
   onSubmit() {
-    console.log(this.signupForm);
+    //console.log(this.signupForm);
     if (!this.signupForm.valid) {
       alert('Please Enter Details');
       return;

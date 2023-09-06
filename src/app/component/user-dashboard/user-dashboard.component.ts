@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminServiceService } from 'src/app/service/admin-service.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -6,24 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css'],
 })
 export class UserDashboardComponent implements OnInit {
-  constructor() {}
+  role: any;
+  role1: any;
+  constructor(
+    private adminService: AdminServiceService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
-  startExam() {
-    var currentdate = new Date().getTime();
-    alert(currentdate);
-    // var datetime =
-    //   currentdate.getDate() +
-    //   '/' +
-    //   (currentdate.getMonth() + 1) +
-    //   '/' +
-    //   currentdate.getFullYear() +
-    //   ' ,' +
-    //   currentdate.getHours() +
-    //   ':' +
-    //   currentdate.getMinutes() +
-    //   ':' +
-    //   currentdate.getSeconds();
-    // localStorage.setItem('startTime', datetime);
+  ngOnInit(): void {
+    this.role = localStorage.getItem('role');
+    this.role1 = localStorage.getItem('role1');
+  }
+
+  reset() {
+    this.adminService.resetAns().subscribe((res) => {
+      console.log(res);
+    });
+    this.router.navigateByUrl('card');
   }
 }

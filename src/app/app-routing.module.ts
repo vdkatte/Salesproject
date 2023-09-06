@@ -20,11 +20,7 @@ import { DevelopNeedsComponent } from './component/develop-needs/develop-needs.c
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { AnswerTabComponent } from './component/answer-tab/answer-tab.component';
-import { Stage2DashboardComponent } from './component/stage2-dashboard/stage2-dashboard.component';
-import { Stage1DashboardComponent } from './component/stage1-dashboard/stage1-dashboard.component';
-import { Stage3DashboardComponent } from './component/stage3-dashboard/stage3-dashboard.component';
-import { Stage4DashboardComponent } from './component/stage4-dashboard/stage4-dashboard.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { QuestionComponent } from './component/question/question.component';
 
 const routes: Routes = [
   { path: 'loginpage', component: LoginpageComponent },
@@ -43,17 +39,11 @@ const routes: Routes = [
   { path: 'close', component: CloseComponent },
   { path: 'presentSolutions', component: PresentSolutionsComponent },
   { path: 'develop-needs', component: DevelopNeedsComponent },
-
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'answer-tab', component: AnswerTabComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'stage1-dashboard', component: Stage1DashboardComponent },
-  { path: 'stage2-dashboard', component: Stage2DashboardComponent },
-  { path: 'stage3-dashboard', component: Stage3DashboardComponent },
-  { path: 'stage4-dashboard', component: Stage4DashboardComponent },
- 
-  
+  { path: 'question-tab', component: QuestionTabsComponent },
+  { path: 'question', component: QuestionComponent },
 ];
 
 @NgModule({

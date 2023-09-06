@@ -30,15 +30,19 @@ export class LoginpageComponent implements OnInit {
     this.selectedRole = event.target.value;
   }
   submit() {
+    let role1 = 'user1';
     this.user.login(this.loginForm.value).subscribe((res: any) => {
-      alert(res);
+      alert('Login Succesfully');
 
       localStorage.setItem('userId', res.UserID);
       localStorage.setItem('username', res.userName);
+
       if (res.UserID) {
         if (res.role == 'admin') {
           this.router.navigateByUrl('/admin-dashboard');
+          localStorage.setItem('role', res.role);
         } else {
+          localStorage.setItem('role1', role1);
           this.router.navigateByUrl('/user-dashboard');
         }
       }

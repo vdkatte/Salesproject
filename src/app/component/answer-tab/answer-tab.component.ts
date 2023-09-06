@@ -11,6 +11,7 @@ import * as XLSX from 'xlsx';
 export class AnswerTabComponent {
   answerArray: any[] = [];
   ansArray: any;
+  userid: any;
   EXCEL_TYPE =
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
   EXCEL_EXTENSION = '.xlsx';
@@ -21,30 +22,36 @@ export class AnswerTabComponent {
   ) {}
 
   ngOnInit() {
+    this.router.queryParams.subscribe((params: any) => {
+      console.log(params);
+      this.userid = params.userID;
+      this.getAnswer();
+
+      console.log(this.answerArray);
+    });
+  }
+  getAnswer() {
     this.adminService.getAnswer().subscribe((res: any) => {
       console.log(res);
 
       this.ansArray = res;
-    });
-    this.router.queryParams.subscribe((params: any) => {
-      console.log(params);
       this.answerArray = [...this.ansArray].filter(
-        (ele) => params.userID === ele.user._id
+        (ele) => this.userid === ele.user._id
       );
       console.log(this.answerArray);
     });
   }
   public exportAsExcelFile(): void {
-    console.log(this.ansArray);
+    console.log(this.answerArray);
 
-    let jsonArray = this.ansArray.map((ele: any) => {
+    let jsonArray = this.answerArray.map((ele: any) => {
       return {
-        fullName: ele.user.fullName,
-        category: ele.category,
-        question: ele.question,
-        option: ele.option,
-        mark: ele.mark,
-        endTime: `${new Date(ele.time).getDate()}-${
+        Name: ele.user.fullName,
+        Category: ele.category,
+        Question: ele.question,
+        Answer: ele.option,
+        Mark: ele.mark,
+        Submited_On: `${new Date(ele.time).getDate()}-${
           new Date(ele.time).getMonth() + 1
         }-${new Date(ele.time).getFullYear()}`,
       };
@@ -58,13 +65,18 @@ export class AnswerTabComponent {
       bookType: 'xlsx',
       type: 'array',
     });
-    this.saveAsExcelFile(excelBuffer, 'answer');
+    this.saveAsExcelFile(excelBuffer, jsonArray[0].Name);
   }
   private saveAsExcelFile(buffer: any, fileName: string): void {
     const data: Blob = new Blob([buffer], { type: this.EXCEL_TYPE });
     FileSaver.saveAs(
       data,
-      fileName + '_export_' + new Date().getTime() + this.EXCEL_EXTENSION
+      fileName +
+        '_' +
+        `${new Date().getDate()}-${
+          new Date().getMonth() + 1
+        }-${new Date().getFullYear()}` +
+        this.EXCEL_EXTENSION
     );
   }
 }

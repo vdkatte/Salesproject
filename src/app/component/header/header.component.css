@@ -15,6 +15,7 @@
   background-color: red;
 }
 .navbar {
+  padding: 0% !important;
   border-radius: 20px;
 }
 .directselltext {

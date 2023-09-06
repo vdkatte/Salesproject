@@ -6,11 +6,22 @@
     <div class="col-xl-11" style="margin-top: 5px">
       <app-header></app-header>
       <marquee width="100%" height="200px" class="marquee"
-        ><h3 style="color: green">
+        ><h3 style="color: rgb(209, 102, 53); margin-top: 10px">
           Welcome To The Selling For Success In Direct Dashboard
         </h3></marquee
       >
-      <button routerLink="/card" (click)="startExam()">Start Exam</button>
+      <div class="line" *ngIf="role1 == 'user1'">
+        <h3>Click On Start Button To Start Reviewer</h3>
+      </div>
+      <div class="line" *ngIf="role == 'admin'">
+        <h3>Click On Preview Button To Check Questions</h3>
+      </div>
+      <button (click)="reset()" class="startBtn" *ngIf="role1 == 'user1'">
+        Start Reviewer
+      </button>
+      <button (click)="reset()" class="startBtn" *ngIf="role == 'admin'">
+        Preview
+      </button>
     </div>
   </div>
 </div>

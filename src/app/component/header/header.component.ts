@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from 'src/app/service/admin-service.service';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -13,6 +12,8 @@ export class HeaderComponent implements OnInit {
   constructor() {
     this.userName = localStorage.getItem('username');
   }
-
+  onlogout() {
+    localStorage.clear();
+  }
   ngOnInit(): void {}
 }

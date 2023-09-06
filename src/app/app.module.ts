@@ -28,7 +28,7 @@ import { Trap2Component } from './component/trap2/trap2.component';
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { AnswerTabComponent } from './component/answer-tab/answer-tab.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { QuestionComponent } from './component/question/question.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     UserDashboardComponent,
     SignUpComponent,
     AnswerTabComponent,
-    DashboardComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,

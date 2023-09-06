@@ -1,22 +1,52 @@
 <ul class="leftsidebar">
-  <li>
-    <a title="Dashboard" [routerLink]="['/budget-dashboard']"
-      ><img src="./Images/home.png" alt="" width="20px" height="20px"
+  <li *ngIf="role1 == 'user1'">
+    <a title="Dashboard" routerLink="/user-dashboard" title="Dashboard"
+      ><img
+        src="/assets/home3.jpg"
+        alt=""
+        width="30px"
+        height="30px"
+        style="margin-left: -5px"
+    /></a>
+  </li>
+  <li *ngIf="role == 'admin'">
+    <a title="Dashboard" routerLink="/admin-dashboard" title="Dashboard"
+      ><img
+        src="/assets/home3.jpg"
+        alt=""
+        width="30px"
+        height="30px"
+        style="margin-left: -5px"
     /></a>
   </li>
   <li>
     <a href="" title="Help"
-      ><img src="./Images/help.jpg" alt="" width="20px" height="20px"
+      ><img
+        src="/assets/contactUS2.jpg"
+        alt=""
+        width="30px"
+        height="30px"
+        style="margin-left: -5px"
     /></a>
   </li>
   <li>
     <a href="" download="USER_GUIDE.pdf" title="USER GUIDE"
-      ><img src="./Images/msg.png" alt="" width="20px" height="20px"
+      ><img
+        src="/assets/userGuide2.jpg"
+        alt=""
+        width="30px"
+        height="30px"
+        style="margin-left: -5px"
     /></a>
   </li>
   <li>
-    <a href="" download="BUDGET_FAQ.pdf" title="BUDGET_FAQ"
-      ><img src="./Images/profile.png" alt="" width="20px" height="20px"
+    <a download="BUDGET_FAQ.pdf" title="FAQ"
+      ><img
+        src="/assets/faq2.jpg"
+        alt=""
+        width="30px"
+        height="30px"
+        style="margin-left: -5px"
     /></a>
   </li>
 </ul>
